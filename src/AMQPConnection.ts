@@ -150,7 +150,7 @@ export class AMQP {
 
             return this.connection.close()
                 .then(() => {
-                    this.connection = null
+                    this.connection = undefined;
                     this.disconnecting = false;
                 })
                 .catch(err => {
@@ -179,7 +179,7 @@ export class AMQP {
                 this.connection.createConfirmChannel())
                 .then((channel) => {
                     // Configure channel prefetch
-                    if (Number.isSafeInteger(options.prefetch) && options.prefetch > 0) {
+                    if (options.prefetch && Number.isSafeInteger(options.prefetch) && options.prefetch > 0) {
                         return channel.prefetch(options.prefetch).then(() => channel);
                     }
                     else return channel;
@@ -249,7 +249,7 @@ const consumeOptionsDefault: Pick<Options.Consume, 'exclusive' | 'noAck' | 'noLo
  * @param channelType The channel type
  */
 class AMQPChannel {
-    channel: Channel | ConfirmChannel;
+    channel: Channel | ConfirmChannel | undefined;
     channelType: channelType;
 
     constructor(channel: Channel, channelType: channelType) {
@@ -259,12 +259,12 @@ class AMQPChannel {
 
     /**
      * Create a queue
-     * @param queueName The queue name
+     * @param queueName The queue name. '' will create a unique queue name
      * @param options The queue options
      * @returns The queue name
      * @throws Error if the channel is closed, or if the queue could not be created for any reason
      */
-    async createQueue(queueName?: string, options?: Options.AssertQueue) {
+    async createQueue(queueName: string, options?: Options.AssertQueue) {
         if (this.channel) {
             let queueOptions = {};
             if (options) {
@@ -413,7 +413,7 @@ class AMQPChannel {
                 }
 
             } catch (err) {
-                log(err.message);
+                log((err as Error).message);
                 throw err;
             }
         }
@@ -465,7 +465,7 @@ class AMQPChannel {
                 }
 
             } catch (err) {
-                log(err.message);
+                log((err as Error).message);
                 throw err;
             }
         }
