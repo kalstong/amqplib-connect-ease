@@ -18,15 +18,17 @@ Its a wrapper for [amqplib v0.10.3](https://www.npmjs.com/package/amqplib/v/0.10
 
 To install this package, run:
 
-`npm install 'amqplib-connect-ease'`
+`npm install amqplib-connect-ease`
 
 ## Usage
 
 ### Creating an AMQP Connection
 To establish a connection to a RabbitMQ server, create an instance of the AMQP class with the desired connection settings:
 ```javascript
+import { AMQP } from 'amqplib-connect-ease';
+
 const connectionSettings = {
-  host: 'localhost',
+  hostname: 'localhost',
   port: 5672,
   username: 'guest',
   password: 'guest',
