@@ -1,4 +1,4 @@
-# Package Name
+# amqplib-connect-ease
 
 [![npm version](https://badge.fury.io/js/@kalstong%2Famqplib-connect-ease.svg)](https://badge.fury.io/js/@kalstong%2Famqplib-connect-ease)
 
