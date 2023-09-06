@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "target": "ES6",
+    "module": "CommonJS",
+    "declaration": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+  },
+
+  "include": ["src"], // which files to compile
+  "exclude": ["node_modules", "**/__tests__/*"] // which files to skip
+}
