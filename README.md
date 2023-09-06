@@ -1,6 +1,6 @@
 # amqplib-connect-ease
 
-[![npm version](https://badge.fury.io/js/@kalstong%2Famqplib-connect-ease.svg)](https://badge.fury.io/js/@kalstong%2Famqplib-connect-ease)
+[![npm version](https://badge.fury.io/js/amqplib-connect-ease.svg)](https://badge.fury.io/js/amqplib-connect-ease)
 
 This npm package serves as a convenient wrapper for working with RabbitMQ using AMQP in Node.js applications.
 
@@ -18,7 +18,7 @@ Its a wrapper for [amqplib v0.10.3](https://www.npmjs.com/package/amqplib/v/0.10
 
 To install this package, run:
 
-`npm install '@kalstong/amqplib-connect-ease'`
+`npm install 'amqplib-connect-ease'`
 
 ## Usage
 
