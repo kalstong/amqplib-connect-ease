@@ -1,9 +1,9 @@
 {
   "name": "amqplib-connect-ease",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wrapper for amqplib v0.10.3 to add connection handling.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
@@ -43,6 +43,6 @@
     "typescript": "^5.2.2"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ]
 }
