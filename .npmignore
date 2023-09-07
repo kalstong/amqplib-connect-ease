@@ -1,0 +1,9 @@
+.github
+node_modules
+src
+.eslintignore
+.eslintrc
+.gitignore
+.prettierrc
+jestconfig.json
+tsconfig.json
