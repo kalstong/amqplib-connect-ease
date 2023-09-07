@@ -1,5 +1,4 @@
-.github
-node_modules
+.github/
 src
 .eslintignore
 .eslintrc
