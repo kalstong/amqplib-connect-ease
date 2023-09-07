@@ -1,6 +1,6 @@
 {
   "name": "amqplib-connect-ease",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Wrapper for amqplib v0.10.3 to add connection handling.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
