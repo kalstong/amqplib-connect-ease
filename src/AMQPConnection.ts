@@ -61,13 +61,11 @@ export class AMQP {
      * @returns void
      */
     private retry() {
-        const desc = `Reconnecting to RabbitMQ in ${this.settings.reconnectDelayMs}ms`
-
-        log(desc);
-        this.emitter.emit("reconnecting", desc)
-
         this.reconnectTimer = setInterval(() => {
-            log("Reconnecting to RabbitMQ");
+            const desc = `Reconnecting to RabbitMQ in ${this.settings.reconnectDelayMs}ms`
+            log(desc);
+            this.emitter.emit("reconnecting", desc)
+    
             this.connect();
         }, this.settings.reconnectDelayMs);
     }
