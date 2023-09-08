@@ -1,7 +1,7 @@
 import amqp, { Connection, Channel, Options, ConfirmChannel, ConsumeMessage } from "amqplib";
 import EventEmitter from "events";
 import util = require('util');
-const log = util.debuglog('libIconeCoreX-amqp');
+const log = util.debuglog('amqplib-connect-ease');
 import {
     IChannelOptions,
     ISettings,
@@ -80,10 +80,10 @@ export class AMQP {
     async connect() {
         if (this.connecting || this.disconnecting) {
             log("Already connecting or disconnecting");
-            return Promise.reject(new Error("Already connecting or disconnecting"));
         }
 
         this.connecting = true;
+        this.connection = undefined;
 
         return amqp.connect(this.settings, this.tlsOptions)
             .then((connection: Connection) => {
@@ -122,19 +122,18 @@ export class AMQP {
                         this.retry();
                     }
                 });
+
+                if (typeof this.connection != "undefined") {
+                    log("Connected to RabbitMQ");
+                    this.connecting = false;
+                    this.emitter.emit("connected")
+                }
             })
             .catch((err: Error) => {
                 log(err.message, this.getSettings());
                 if (this.settings.reconnect && !this.reconnectTimer) {
                     this.connection = undefined;
                     throw err;
-                }
-            })
-            .finally(() => {
-                if (typeof this.connection != "undefined") {
-                    log("Connected to RabbitMQ");
-                    this.connecting = false;
-                    this.emitter.emit("connected")
                 }
             });
     }
@@ -644,6 +643,4 @@ class AMQPChannel {
         }
         return Promise.resolve();
     }
-
-
 }
