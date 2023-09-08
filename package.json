@@ -1,6 +1,6 @@
 {
   "name": "amqplib-connect-ease",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Wrapper for amqplib v0.10.3 to add connection handling.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,6 +9,10 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "jest --config jestconfig.json --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalstong/amqplib-connect-ease.git"
   },
   "keywords": [
     "AMQP",
