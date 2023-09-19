@@ -131,6 +131,7 @@ export class AMQP {
                 log(err.message, this.getSettings());
                 if (this.settings.reconnect && !this.reconnectTimer) {
                     this.connection = undefined;
+                    this.connecting = false;
                     throw err;
                 }
             });
