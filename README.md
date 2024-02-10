@@ -12,7 +12,7 @@ It can emit events such as "reconnecting," "connected," "blocked," "unblocked," 
 
 It supports automatic connection recovery with configurable options like recoverDelayMs.
 
-Its a wrapper for [amqplib v0.10.3](https://www.npmjs.com/package/amqplib/v/0.10.3)  to add connection handling.
+Its a wrapper for [amqplib v0.10.4](https://www.npmjs.com/package/amqplib/v/0.10.4)  to add connection handling.
 
 # Support me
 Here's the option for you to buy me a coffee - if you like my software, if you find it useful and you can, please consider this small gesture for all the hard work I've been putting into these projects.
